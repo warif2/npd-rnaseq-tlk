@@ -1,6 +1,6 @@
 # Nanopore Direct RNA-Seq Toolkit
 A collection of scripts for analysis of nanopore direct 
-RNA-Seq data.
+RNA-Seq data. Still in development.
 
 ## Hardware and Software Requirments
   * 64 bit Linux or Mac OS X
@@ -29,12 +29,12 @@ pip install -r /npd-rnaseq-tlk/requirements.txt
 ```
 
 ## Quick Command Line Usage
-Currently, only the scripts for analyzing nanopolish polya output 
+Currently, only scripts for analyzing nanopolish polya output 
 has been developed. With time additional scripts will become 
 available. 
 ```bash
-# To see available options for nanopolish_polya_aggregate.py
-python nanopolish_polya_aggregate.py -h
+# To see available options for pal_aggr.py
+python pal_aggr.py -h
 ```
 
-Check out the Wiki page for more detailed guides on how to use the various tools.
+Check out the [Wiki] (https://github.com/warif2/npd-rnaseq-tlk/wiki) page for more detailed guides on how to use the various tools.

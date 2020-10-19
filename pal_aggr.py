@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description="Post-processing of 'nanopolish polya' output file with "
                                                  "annotation-based data aggregation and downstream analysis.",
-                                     prog="nanopolish_polya_aggregate.py")
+                                     prog="pal_aggr.py")
     optional = parser._action_groups.pop()
     required = parser.add_argument_group('required arguments')
     required.add_argument("-fl", type=str, default=None, metavar="path_file",
@@ -59,6 +59,8 @@ if __name__ == '__main__':
     logger.info('Number of threads: %i' % args.t)
 
     for run in csv.reader(open(args.fl, 'r'), delimiter='\t'):
+        if run[0][0] == '#':
+            continue
         sample = run[0]
         path = run[1]
         logger.info('Creating directory for sample: %s' % sample)
