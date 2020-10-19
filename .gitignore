@@ -1,0 +1,9 @@
+# Project exclude paths
+/venv/
+compile.py
+license.py
+license.c
+main.py
+/build
+license_readme.txt
+license_key.py
