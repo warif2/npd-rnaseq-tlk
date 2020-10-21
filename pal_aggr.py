@@ -39,13 +39,13 @@ if __name__ == '__main__':
     # Preparing logging console for __main__
     time_stamp = str(datetime.datetime.now())
     numeric_level = getattr(logging, 'INFO', None)
-    logging.basicConfig(filename='npd-rnaseq-tlk.' + time_stamp.replace(" ", "_") + '.log',
+    logging.basicConfig(filename='npd-rnaseq-tlk.poly_aggr.' + time_stamp.replace(" ", "_") + '.log',
                         level=logging.DEBUG,
                         format='%(asctime)s\t%(name)-12s\t%(message)s',
                         filemode='w')
-    logger = logging.getLogger('nanopolish_polya_aggr')
-    logger.debug('nanopolish_polya_aggregate.py version: %s' % version.__version__)
-    logger.debug('Input command: python nanopolish_polya_aggregate ' + " ".join(sys.argv))
+    logger = logging.getLogger('pal_aggr')
+    logger.debug('pal_aggr.py version: %s' % version.__version__)
+    logger.debug('Input command: python pal_aggr.py ' + " ".join(sys.argv))
 
     # Defining Handler to write messages to sys.stdout
     if args.silent:

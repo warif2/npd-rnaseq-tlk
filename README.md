@@ -37,4 +37,4 @@ available.
 python pal_aggr.py -h
 ```
 
-Check out the [Wiki] (https://github.com/warif2/npd-rnaseq-tlk/wiki) page for more detailed guides on how to use the various tools.
+Check out the [Wiki](https://github.com/warif2/npd-rnaseq-tlk/wiki) page for more detailed guides on how to use the various tools.
