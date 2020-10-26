@@ -10,3 +10,5 @@ license_key.py
 license_key.so
 setup.c
 /main_dev.py
+/license_setup.py
+/license_setup.c
