@@ -9,16 +9,16 @@ import datetime
 import version
 import pickle
 
-if __name__ == '__main__':
+
+def main():
     # Check license
     license.check_status()
 
     # Setup of argparse for script arguments
-    class licenseAction(argparse.Action):
+    class LicenseAction(argparse.Action):
         def __call__(self, parser, namespace, values, option_string=None):
             print("License status: %s" % license.message())
             sys.exit()
-
 
     parser = argparse.ArgumentParser(description="Post-processing of 'nanopolish polya' output file with "
                                                  "annotation-based data aggregation and downstream analysis.",
@@ -31,7 +31,7 @@ if __name__ == '__main__':
                           help='specify number of threads to use, default = 1')
     optional.add_argument("-qc_filter", action='store_true', help='process only reads with qc_tag = PASS')
     optional.add_argument("--silent", action='store_true', help='run script without terminal outputs')
-    optional.add_argument("-l", "--license", action=licenseAction, metavar="", nargs=0,
+    optional.add_argument("-l", "--license", action=LicenseAction, metavar="", nargs=0,
                           help='show license status and exit')
     parser._action_groups.append(optional)
     args = parser.parse_args()
@@ -67,7 +67,7 @@ if __name__ == '__main__':
         if not os.path.isdir(sample):
             os.mkdir(sample)
         logger.info('Starting run...')
-        tx_pd, tx_aggr, gn_pd, gn_aggr = license.np_polya_aggr(path, args.t, args.qc_filter, args.silent)
+        tx_pd, tx_aggr, gn_pd, gn_aggr, annot = license.np_polya_aggr(path, args.t, args.qc_filter, args.silent)
         # Saving results
         logger.info('Saving results...')
         tx_pd.to_csv(sample + '/' + 'tx_polyA.csv', index=False)
@@ -78,5 +78,11 @@ if __name__ == '__main__':
             pickle.dump(tx_aggr, handle, protocol=pickle.HIGHEST_PROTOCOL)
         with open(sample + '/' + 'gn.pickle', 'wb') as handle:
             pickle.dump(gn_aggr, handle, protocol=pickle.HIGHEST_PROTOCOL)
+        with open(sample + '/' + 'annotation.pickle', 'wb') as handle:
+            pickle.dump(annot, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
     logger.info('All runs are complete!')
+
+
+if __name__ == '__main__':
+    main()

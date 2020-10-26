@@ -9,20 +9,19 @@ import version
 import os
 
 
-if __name__ == '__main__':
+def main():
     # Check license
     license.check_status()
 
     # Setup of argparse for script arguments
-    class licenseAction(argparse.Action):
+    class LicenseAction(argparse.Action):
         def __call__(self, parser, namespace, values, option_string=None):
             print("License status: %s" %license.message())
             sys.exit()
 
     parser = argparse.ArgumentParser(description="Performs statistical analysis for differential polyA length"
                                                  "distributions between multiple conditions at the transcript"
-                                                 "and gene level.",
-                                         prog="pal_diff.py")
+                                                 "and gene level.", prog="pal_diff.py")
     optional = parser._action_groups.pop()
     required = parser.add_mutually_exclusive_group()
     required.add_argument("-run", type=str, default=None, metavar="setup_file",
@@ -30,7 +29,7 @@ if __name__ == '__main__':
     required.add_argument("-sf", action='store_true', help='outputs setup_file template')
     optional.add_argument("--silent", action='store_true',
                           help='use with run option, runs script without terminal outputs')
-    optional.add_argument("-l", "--license", action=licenseAction, metavar="", nargs=0,
+    optional.add_argument("-l", "--license", action=LicenseAction, metavar="", nargs=0,
                           help='show license status and exit')
     parser._action_groups.append(optional)
     args = parser.parse_args()
@@ -75,3 +74,7 @@ if __name__ == '__main__':
                                  'fdr_co': float(line[5])}
         # setup and run tests
         license.pal_diff_setnrun(runs)
+
+
+if __name__ == '__main__':
+    main()

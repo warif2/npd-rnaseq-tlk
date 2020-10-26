@@ -4,7 +4,9 @@
 compile.py
 license.py
 license.c
-main.py
 /build
 license_readme.txt
 license_key.py
+license_key.so
+setup.c
+/main_dev.py

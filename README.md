@@ -28,13 +28,24 @@ git clone https://github.com/warif2/npd-rnaseq-tlk.git
 pip install -r /npd-rnaseq-tlk/requirements.txt
 ```
 
+Finally, run setup.py to obtain the license key needed to run the tools. It also provides the
+option of adding the directory to your PATH variable which allows calling the tool
+from any directory.
+```bash
+# Run setup.py
+cd npd-rnaseq-tlk/
+python setup.py
+
+Note: After setup, refresh terminal for PATH update to take effect.
+```
+
 ## Quick Command Line Usage
 Currently, only scripts for analyzing nanopolish polya output 
 has been developed. With time additional scripts will become 
 available. 
 ```bash
-# To see available options for pal_aggr.py
-python pal_aggr.py -h
+# To see available mode for npr-rnaseq-tlk
+~/npdr-tools -h
 ```
 
 Check out the [Wiki](https://github.com/warif2/npd-rnaseq-tlk/wiki) page for more detailed guides on how to use the various tools.
