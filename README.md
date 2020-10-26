@@ -37,6 +37,10 @@ cd npd-rnaseq-tlk/
 python setup.py
 
 Note: After setup, refresh terminal for PATH update to take effect.
+If npdr-tools is still not callable, you might need to modify permissions of npdr-tools.
+
+# Change npdr-tools permission to allow system-wide execution.
+chmod 755 npdr-tools
 ```
 
 ## Quick Command Line Usage
